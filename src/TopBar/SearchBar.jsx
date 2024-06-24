@@ -1,6 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState();
