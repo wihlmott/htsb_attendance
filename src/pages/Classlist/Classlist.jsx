@@ -1,8 +1,9 @@
-import { Typography } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import ListItem from "./ListItem";
 import SubmitFormButton from "./SubmitFormButton";
-import Layout from "../../Layout.jsx";
+import Layout from "../Components/Layout";
+
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 

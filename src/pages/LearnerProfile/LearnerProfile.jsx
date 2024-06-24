@@ -1,15 +1,9 @@
-import Layout from "../../Layout.jsx";
+import Layout from "../Components/Layout";
+import AccordionComp from "../Components/AccordionComp";
 import InfoCard from "./InfoCard/InfoCard";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import { useState } from "react";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
+import { learnerProfileTabs } from "../../config.jsx";
 
-const learnerProfileTabs = ["attendance", "home work", "assessments"];
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 const names = [
   { adminNo: "100-24", firstname: "John", lastname: "Smith" },
@@ -19,8 +13,6 @@ const names = [
 ];
 
 const LearnerProfile = () => {
-  const [tab, setTab] = useState("attendance");
-
   return (
     <>
       <Grid2 container>
@@ -31,28 +23,7 @@ const LearnerProfile = () => {
           <Layout
             children={
               <>
-                {learnerProfileTabs.map((el) => {
-                  return (
-                    <Accordion
-                      key={el}
-                      onClick={(e) =>
-                        setTab(tab === el ? false : e.target.textContent)
-                      }
-                      expanded={tab === el}
-                    >
-                      <AccordionSummary>
-                        {
-                          <Typography
-                            sx={tab === el ? styles.open : styles.close}
-                          >
-                            {el}
-                          </Typography>
-                        }
-                      </AccordionSummary>
-                      <AccordionDetails>stuff</AccordionDetails>
-                    </Accordion>
-                  );
-                })}
+                <AccordionComp arr={learnerProfileTabs} />
               </>
             }
             size={0.5}
@@ -61,18 +32,6 @@ const LearnerProfile = () => {
       </Grid2>
     </>
   );
-};
-
-const styles = {
-  open: {
-    textTransform: "capitalize",
-    textShadow: "1px 1px 7px rgba(0,0,0,0.3)",
-  },
-  close: {
-    fontSize: "small",
-    textTransform: "capitalize",
-    color: "rgba(0,0,0,0.6)",
-  },
 };
 
 export default LearnerProfile;

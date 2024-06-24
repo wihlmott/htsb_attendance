@@ -1,5 +1,5 @@
 import { Card, Typography } from "@mui/material";
-import Layout from "../../Layout.jsx";
+import Layout from "../Components/Layout";
 import { Link } from "react-router-dom";
 
 const FileBanner = ({ files }) => {

@@ -7,11 +7,13 @@ import {
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
+import { drawListItems } from "../config";
+
 const DrawList = () => {
   return (
     <Box sx={{ width: 180 }} role="presentation">
       <List>
-        {["home", "learner profile", "teacher"].map((el) => {
+        {drawListItems.map((el) => {
           return (
             <NavLink
               key={el}

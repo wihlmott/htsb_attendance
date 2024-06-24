@@ -5,6 +5,7 @@ import LearnerProfile from "./pages/LearnerProfile/LearnerProfile";
 import FileBanner from "./pages/FileBanner/FileBanner";
 import Classlist from "./pages/Classlist/Classlist";
 import TopBar from "./TopBar/TopBar";
+import Home from "./pages/Home/Home";
 
 const files = [
   { grade: "grade 9", subject: "mathematics", teacherCode: "VL", class: "1" },
@@ -29,8 +30,9 @@ const router = createBrowserRouter([
     path: "/",
     element: <TopBar />,
     children: [
+      { path: "/", element: <Home /> },
       { path: "/learnerprofile", element: <LearnerProfile /> }, //initial page if learner signs in
-      { path: "/", element: <FileBanner files={files} /> }, //needs to be dynampic, this page after landing page, set from signin data
+      { path: "/classes", element: <FileBanner files={files} /> }, //needs to be dynampic, this page after landing page, set from signin data
       {
         path: "/files/:grade/:subject/:teacherCode/:class",
         element: <Classlist names={names} />,

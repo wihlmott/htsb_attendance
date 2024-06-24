@@ -16,6 +16,7 @@ const TopBar = () => {
         <SwipeableDrawer
           anchor="left"
           open={openMenu}
+          onClick={menuClickedHandler}
           onClose={menuClickedHandler}
           onOpen={menuClickedHandler}
         >
