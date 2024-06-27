@@ -1,5 +1,6 @@
 import { Paper, Radio, Typography } from "@mui/material";
 import { useState } from "react";
+import { colors } from "../config";
 
 const ListItem = ({ learnerCard, buttonsText, i }) => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -39,7 +40,7 @@ const styles = {
     textTransform: "capitalize",
     p: 1,
     borderRadius: 0,
-    backgroundColor: "rgba(189,195,199,0.8)",
+    backgroundColor: colors.blueGrey(0),
     textShadow: "1px 1px 5px rgba(0,0,0,0.3)",
   },
   nameElement: {

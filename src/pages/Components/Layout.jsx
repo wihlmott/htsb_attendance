@@ -14,7 +14,7 @@ const Layout = ({ children, size = 2 }) => {
 
 const styles = {
   banner: {
-    marginTop: "44px",
+    marginTop: "20px",
     height: "70vh",
     backgroundColor: "rgba(0,0,0,0.1)",
     borderRadius: "10px",

@@ -9,7 +9,7 @@ const dummy = {
 
 const InfoCard = ({ adminNo }) => {
   return (
-    <Card sx={{ mt: "50px", mb: -4 }}>
+    <Card sx={styles.card}>
       <div
         style={{
           float: "left",
@@ -53,6 +53,7 @@ const styles = {
     textShadow: "1px 1px 1px rgba(0,0,0,0.2)",
     padding: 1,
   },
+  card:{ mt: "20px", mb: -1 }
 };
 
 export default InfoCard;
