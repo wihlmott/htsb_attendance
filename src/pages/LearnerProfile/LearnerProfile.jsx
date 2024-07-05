@@ -1,9 +1,8 @@
-import Layout from "../Components/Layout";
-import AccordionComp from "../Components/AccordionComp";
-import InfoCard from "./InfoCard/InfoCard";
-import { learnerProfileTabs } from "../../config.jsx";
+import LearnerInfo from './LearnerInfo.jsx'
+import SearchBar from "../../TopBar/SearchBar.jsx";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import { useState } from 'react';
 
 const names = [
   { adminNo: "100-24", firstname: "John", lastname: "Smith" },
@@ -13,22 +12,23 @@ const names = [
 ];
 
 const LearnerProfile = () => {
+  const [learner, setLearner] = useState(false);
+
+  const sendSearch = e => {
+    setLearner(e);
+    console.log(`searching from learnerProfile page... for ... ${e}`)
+  }//this must set learner //also provide loading icon during search
+
   return (
     <>
+        <Grid2 item='true' xs={10} md={6}>
+          <SearchBar width={window.innerWidth<'400'?'92vw':'30vw'} marginTop='25px' sendSearch={sendSearch}/>
+        </Grid2>
+        <br/>
+        <br/>
+        <br/>
       <Grid2 container>
-        <Grid2 item="true" xs={12} md={2}>
-          <InfoCard adminNo={names[0].adminNo} />
-        </Grid2>
-        <Grid2 item="true" xs={12} md={10}>
-          <Layout
-            children={
-              <>
-                <AccordionComp arr={learnerProfileTabs} />
-              </>
-            }
-            size={0.5}
-          />
-        </Grid2>
+        {learner && <LearnerInfo adminNo={names[0].adminNo}/> /*send in learner info */} 
       </Grid2>
     </>
   );

@@ -6,6 +6,7 @@ import FileBanner from "./pages/FileBanner/FileBanner";
 import Classlist from "./pages/Classlist/Classlist";
 import TopBar from "./TopBar/TopBar";
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 
 const files = [
   { grade: "grade 9", subject: "mathematics", teacherCode: "VL", class: "1" },
@@ -30,15 +31,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <TopBar />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/learnerprofile", element: <LearnerProfile /> }, //initial page if learner signs in
+      { path: "/", element: <Login/> },
+      { path: "/home", element: <Home /> },//initial page after sign in
+      { path: "/learnerprofile", element: <LearnerProfile /> }, // search for learners, only available for teachers
       { path: "/classes", element: <FileBanner files={files} /> }, //needs to be dynampic, this page after landing page, set from signin data
       {
         path: "/files/:grade/:subject/:teacherCode/:class",
         element: <Classlist names={names} />,
       },
     ],
-  },
+  },//create different routing options based on - no user signed in, teacher signed in, learner signed in.
   ,
 ]);
 

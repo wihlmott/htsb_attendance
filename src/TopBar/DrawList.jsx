@@ -17,7 +17,7 @@ const DrawList = ({sendPage}) => {
           return (
             <NavLink
               key={el}
-              to={el === "home" ? "/" : `/${el.replace(" ", "")}`}
+              to={el === "logout" ? "/" : `/${el.replace(" ", "")}`}
               style={({ isActive }) =>
                 isActive ? styles.linkActive : styles.link
               }

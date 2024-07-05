@@ -1,4 +1,4 @@
-export const drawListItems = ["home", "classes", "learner profile", "teacher"];
+export const drawListItems = ["home", "classes", "learner profile", "teacher", 'logout'];
 
 export const learnerProfileTabs = ["attendance", "home work", "assessments"];
 

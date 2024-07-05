@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { colors } from "../../config";
 
 const SubmitFormButton = () => {
   const submitHandler = () => {
@@ -6,7 +7,7 @@ const SubmitFormButton = () => {
   };
 
   return (
-    <Button variant="contained" onClick={submitHandler}>
+    <Button variant="contained" onClick={submitHandler} sx={{backgroundColor:colors.red(0.95)}}>
       Submit
     </Button>
   );

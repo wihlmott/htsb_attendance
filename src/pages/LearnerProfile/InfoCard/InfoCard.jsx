@@ -1,4 +1,4 @@
-import { Card, Typography } from "@mui/material";
+import { Avatar, Card, Typography } from "@mui/material";
 
 const dummy = {
   adminNo: "100-24",
@@ -8,12 +8,13 @@ const dummy = {
 };
 
 const InfoCard = ({ adminNo }) => {
+  const initials = dummy.firstname[0]+dummy.lastname[0];
+
   return (
     <Card sx={styles.card}>
       <div
         style={{
           float: "left",
-          position: "relative",
         }}
       >
         <Typography sx={styles.titles}>Admin No:</Typography>
@@ -27,19 +28,7 @@ const InfoCard = ({ adminNo }) => {
         <Typography sx={styles.titles}>Grade:</Typography>
         <Typography sx={{ display: "inline" }}>{dummy.grade}</Typography>
       </div>
-      <div
-        style={{
-          float: "right",
-          position: "relative",
-          border: "1px solid red",
-          height: "70px",
-          borderRadius: "50%",
-          aspectRatio: 1,
-          marginRight: "4px",
-        }}
-      >
-        {/* image */}
-      </div>
+      <Avatar sx={styles.avatar}>{initials}</Avatar>
       <br />
     </Card>
   );
@@ -53,6 +42,7 @@ const styles = {
     textShadow: "1px 1px 1px rgba(0,0,0,0.2)",
     padding: 1,
   },
+  avatar:{float:'right', m:2},
   card:{ mt: "20px", mb: -1 }
 };
 
