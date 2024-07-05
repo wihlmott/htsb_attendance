@@ -39,7 +39,7 @@ const Classlist = ({ names }) => {
 
   return (
     <>
-      <div style={{ marginTop: "50px", marginBottom: "-40px" }}>
+      <div style={{ marginTop: "20px", marginBottom: "-20px" }}>
         <Typography sx={styles.title}>
           {`${params.grade} - ${params.subject} - 
           ${params.teacherCode}${params.class}`}

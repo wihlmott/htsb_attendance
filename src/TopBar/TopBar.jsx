@@ -8,8 +8,12 @@ import DrawList from "./DrawList";
 import { colors } from "../config";
 
 const TopBar = () => {
+  const [page, setPage] = useState('home')
   const [openMenu, setOpenMenu] = useState(false);
+
   const menuClickedHandler = () => setOpenMenu(!openMenu);
+
+  const sendPage = (e) => setPage(e);
 
   return (
     <>
@@ -21,7 +25,7 @@ const TopBar = () => {
           onClose={menuClickedHandler}
           onOpen={menuClickedHandler}
         >
-          {<DrawList />}
+          {<DrawList sendPage={sendPage} />}
         </SwipeableDrawer>
         <Grid2 container sx={{ width: "100%" }}>
           <Grid2 item="true" xs={6} md={9}>
@@ -35,8 +39,8 @@ const TopBar = () => {
           </Grid2>
         </Grid2>
       </AppBar>
-      <Paper sx={styles.pageName}>
-        <Typography>retrieve current page</Typography>
+      <Paper sx={styles.pageNameBanner}>
+        <Typography sx={styles.pageNameText}>{page}</Typography>
       </Paper>
       <Outlet />
     </>
@@ -44,10 +48,11 @@ const TopBar = () => {
 };
 
 const styles = {
-  appBar: { height: "40px", display: "flex", justifyContent: "center", boxShadow:0, backgroundColor:colors.darkBlue(0.8)},
-  text: { display: "inline" },
+  appBar: { height: "40px", display: "flex", justifyContent: "center", boxShadow:0, backgroundColor:colors.red(0.95)},
+  text: { display: "inline", },
   link: { textDecoration: "none", color: "black", textTransform: "capitalize" },
-  pageName: {boxSizing:'borderBox', m:-1, padding:3,marginTop:'35px', borderRadius:0, backgroundColor:"rgba(255,255,255)", boxShadow:'rgba(0, 0, 0, 0.5) 0px 1px 3px' }
+  pageNameBanner: {boxSizing:'borderBox', m:-1, padding:3,marginTop:'35px', borderRadius:0, backgroundColor:"rgba(255,255,255)", boxShadow:'rgba(0, 0, 0, 0.5) 0px 1px 3px' },
+  pageNameText: {textTransform:'capitalize'}
 };
 
 export default TopBar;

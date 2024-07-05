@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 import { drawListItems } from "../config";
 
-const DrawList = () => {
+const DrawList = ({sendPage}) => {
   return (
     <Box sx={{ width: 180 }} role="presentation">
       <List>
@@ -23,7 +23,7 @@ const DrawList = () => {
               }
               end
             >
-              <ListItem>
+              <ListItem onClick={()=>sendPage(el)}>
                 <ListItemButton>
                   <ListItemText>{el}</ListItemText>
                 </ListItemButton>
