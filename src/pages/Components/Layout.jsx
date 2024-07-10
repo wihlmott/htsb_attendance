@@ -38,12 +38,12 @@ const FileBanner = ({ files }) => {
 };
 
 const styles = {
-  subjectCard: { p: 2.5, m: 1 },
-  text: { textTransform: "capitalize" },
-  subtitleText: {
-    textTransform: "capitalize",
-    color: "rgba(0,0,0,0.4)",
-    textShadow: "1px 2px 3px rgba(0,0,0,0.2)",
+  banner: {
+    marginTop: "20px",
+    height: "70vh",
+    backgroundColor: "rgba(0,0,0,0.1)",
+    borderRadius: "10px",
+    overflow:'scroll'
   },
   link: { textDecoration: "none" },
 };
