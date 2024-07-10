@@ -1,15 +1,20 @@
 import { Card, Typography } from "@mui/material";
 import Layout from "../Components/Layout";
 import { Link } from "react-router-dom";
+import { allTeachers } from "../../config";
 
 const FileBanner = ({ files }) => {
+  const displayClasses = (teacherCode) => files.filter((classes)=>classes.teacherCode==teacherCode);
+
+  const showFiles = displayClasses(allTeachers[0].teacherCode);
+
   return (
     <>
       <Layout
-        children={files.map((el) => {
+        children={showFiles.map((el) => {
           return (
             <Link
-              key={el.subject}
+              key={el.subject+el.grade}
               style={styles.link}
               to={`/files/${el.grade.replace(" ", "")}/${el.subject}/${
                 el.teacherCode
@@ -17,7 +22,7 @@ const FileBanner = ({ files }) => {
             >
               <Card sx={styles.subjectCard}>
                 <Typography variant="body1" sx={styles.text}>
-                  {el.grade}
+                  Grade {el.grade}{el.registerCl}
                 </Typography>
                 <Typography variant="subtitle2" sx={styles.subtitleText}>
                   {`${el.subject} - 

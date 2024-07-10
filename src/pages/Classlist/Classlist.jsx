@@ -4,7 +4,7 @@ import Layout from "../Components/Layout";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const buttonsText = [
@@ -19,8 +19,22 @@ const Classlist = ({ names }) => {
   const navigate = useNavigate();
   const params = useParams(); //use params to fetch correct data // remove props from component
 
-  console.log(params);
+  const [namesToShow, setNamesToShow] = useState([]);
 
+  console.log(params);
+  console.log(names);
+
+  useEffect(()=>{
+    switch(params.subject){
+      case 'register':
+        // names.map((name)=>name.registerCl==)
+        setNamesToShow([...names]);
+  
+      default:
+        setNamesToShow([...names]);
+    }
+  },[params])
+    
   const [attendanceState, setAttendanceState] = useState([]);
 
   const buttonClickHandler = (e) => {
@@ -60,7 +74,7 @@ const Classlist = ({ names }) => {
               );
             })}
             <br />
-            {names.map((el, i) => {
+            {namesToShow.map((el, i) => {
               return (
                 <ListItem
                   key={el.adminNo}
