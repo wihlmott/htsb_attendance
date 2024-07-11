@@ -4,13 +4,15 @@ import AccordionComp from "../Components/AccordionComp";
 
 const Home = () => {
   return (
-    <Layout
-      children={
-        <>
-          <AccordionComp arr={homeTabs} />
-        </>
-      }
-    />
+    <>
+      <Layout
+        children={
+          <>
+            <AccordionComp arr={homeTabs} />
+          </>
+        }
+      />
+    </>
   );
 };
 
